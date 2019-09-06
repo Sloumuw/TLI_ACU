@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5
+    environment:
+      MYSQL_ROOT_PASSWORD: psw
+      MYSQL_DATABASE: db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    networks:
+      - db
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      MYSQL_ROOT_PASSWORD: psw
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: user
+      PMA_PASSWORD: password
+    ports:
+      - "8181:80"
+    networks:
+      - db
+
+  web:
+    image: php:7-apache
+    volumes:
+      - ./:/var/www/html/
+    ports:
+      - "8080:80"
+    networks:
+      - db
+
+networks:
+  db:
