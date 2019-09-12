@@ -8,6 +8,9 @@ services:
       MYSQL_DATABASE: db
       MYSQL_USER: user
       MYSQL_PASSWORD: password
+    volumes:
+      - ./db/acuBD.sql:/docker-entrypoint-initdb.d/dump.sql
+    
     ports:
       - "3306:3306"
     networks:
