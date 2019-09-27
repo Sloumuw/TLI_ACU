@@ -6,13 +6,13 @@ use Smarty;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-class HomeController
+class LoginController
 {
     /** @var Smarty */
     private $smarty;
 
     /**
-     * HomeController constructor.
+     * LoginController constructor.
      */
     public function __construct()
     {
@@ -29,7 +29,7 @@ class HomeController
     public function index(Request $request, Response $response): Response
     {
         try {
-            $template = $this->smarty->fetch('base.tpl');
+            $template = $this->smarty->fetch('login.tpl');
             $response->getBody()->write($template);
 
             return $response;
