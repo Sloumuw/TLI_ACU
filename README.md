@@ -1,16 +1,15 @@
 # TLI_ACU
 
-
-# Dev env
-
-```
-sudo ./install.sh
-```
-
+## Dev env
 
 ```
-docker-compose up
+$ make install
 ```
 
-App url: localhost:8080
-PhpMyAdmin url: localhost:8181
+```
+$ make dev
+```
+
+**App url:** localhost:8080
+
+**PhpMyAdmin url:** localhost:8181

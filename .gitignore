@@ -38,4 +38,4 @@ Thumbs.db
 .idea
 vendor
 templates_c/*
-!templates_c/.gitignore
+!templates_c/.gitkeep
