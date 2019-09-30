@@ -8,3 +8,4 @@ $app = AppFactory::create();
 
 $app->get('/', HomeController::class.':index');
 $app->get('/login', LoginController::class.':index');
+$app->post('/login-ajax', LoginController::class.':login');
