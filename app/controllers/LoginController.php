@@ -5,6 +5,7 @@ namespace App\Controllers;
 use Db\Connect;
 use Smarty;
 use App\models\UserService;
+use App\exceptions\NotFoundException;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -53,20 +54,21 @@ class LoginController
     public function login(Request $request, Response $response): Response
     {
         try {
-            $user = $this->userService->getByLogin($request->getAttribute('login'));
-            if ($this->userService->comparePassword($user, $request->getAttribute('password'))) {
+            $user = $this->userService->getByLogin(filter_input(INPUT_POST, 'login'));
+            if ($this->userService->comparePassword($user, filter_input(INPUT_POST, 'password'))) {
                 $data = ['status'=>'success', 'login'=>$user->getLogin()];
             } else {
-                $data = ['status'=>'failed', 'login'=>$user->getLogin()];
+                $data = ['status'=>'failed', 'message'=>'Identifiant / mot de passe incorrect'];
             }
-
-            $payload = json_encode($data);
-            $response->getBody()->write($payload);
-
-            return $response
-                ->withHeader('Content-Type', 'application/json');
-        }catch (\Exception $e) {
-            return $response->withStatus(500, $e->getMessage());
+        } catch (NotFoundException $e) {
+            $data = ['status'=>'failed', 'message'=>$e->getMessage()];
+        } catch (\Exception $e) {
+            $data = ['status'=>'failed', 'message'=>'Une erreur est survenue'];
         }
+        $payload = json_encode($data);
+        $response->getBody()->write($payload);
+
+        return $response
+            ->withHeader('Content-Type', 'application/json');
     }
 }

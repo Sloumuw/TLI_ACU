@@ -12,9 +12,6 @@
 		<link rel="stylesheet" type="text/css" href="../assets/css/skeleton.css">
 		<link rel="stylesheet" type="text/css" href="../assets/css/app.css">
     {/block}
-    {block name="script"}
-		<script src="../assets/js/app.js"></script>
-    {/block}
 </head>
 <body>
 	<nav id="nav-bar">
@@ -39,5 +36,8 @@
 	<div class="container">
 		{block name="content"}{/block}
 	</div>
+	{block name="script"}
+		<script src="../assets/js/app.js"></script>
+	{/block}
 </body>
 </html>

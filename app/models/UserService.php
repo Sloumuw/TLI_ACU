@@ -65,7 +65,7 @@ class UserService
         $row = $stmt->fetch();
 
         if (!$row) {
-            throw new NotFoundException("Aucun utilisateur avec cet login.");
+            throw new NotFoundException("Aucun utilisateur avec ce login");
         }
 
         return User::fromDatabase((array)$row);

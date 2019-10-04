@@ -33,3 +33,46 @@ nav > ul > li {
 	padding-top: 12px;
 	font-size: 28px;
 }
+
+.card {
+	margin: 5vh;
+	border: 1px solid #fff;
+	border-radius: 10px;
+	background-color: #ededed;
+	box-shadow: 2px 2px darkgray;
+}
+
+.card-header {
+	padding: 2vh;
+	color: #fff;
+	font-size: 20px;
+	background-color: #428bca;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.card-body {
+	padding: 2vh;
+}
+
+form {
+	margin-bottom: 0;
+}
+
+.feedback {
+	padding: 2vh;
+	border-radius: 5px;
+	font-size: 14px;
+	font-style: italic;
+	display: none;
+}
+
+.feedback.alert {
+	color: #d9534f;
+	background-color: #f7cccb;
+}
+
+.feedback.success {
+	color: #5cb85c;
+	background-color: #c9f5c6;
+}

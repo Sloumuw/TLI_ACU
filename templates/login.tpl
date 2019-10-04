@@ -7,18 +7,23 @@
 {/block}
 
 {block name="content"}
-	<h2>Connexion</h2>
-	<div class="row">
-		<form class="columns six offset-by-three">
-			<label for="login">Identifiant</label>
-			<input type="text" class="u-full-width" placeholder="identifiant" id="login" required>
-			<label for="password">Mot de passe</label>
-			<input type="email" class="u-full-width" placeholder="********" id="password" required>
-			<input class="button-primary" type="submit" value="Submit">
-		</form>
+	<div class="card columns six offset-by-three">
+		<div class="card-header">Connexion</div>
+		<div class="card-body">
+			<div class="row">
+				<form id="login-form">
+					<label for="login">Identifiant</label>
+					<input type="text" class="u-full-width" placeholder="identifiant" id="login" autocomplete="off" required>
+					<label for="password">Mot de passe</label>
+					<input type="password" class="u-full-width" placeholder="********" id="password" autocomplete="off" required>
+					<input id="login-submit" class="button-primary" type="submit" value="Submit">
+				</form>
+			</div>
+			<div id="feedback" class="feedback"></div>
+		</div>
 	</div>
 {/block}
 
-{block name="stylesheet" append}
+{block name="script" append}
 	<script src="../assets/js/login.js"></script>
 {/block}
