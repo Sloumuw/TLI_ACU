@@ -2471,7 +2471,7 @@ INSERT INTO `symptPatho` (`idS`, `idP`, `aggr`) VALUES
 
 CREATE TABLE user (
 	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	login VARCHAR(20) NOT NULL,
+	login VARCHAR(20) UNIQUE NOT NULL,
 	hashed_password VARCHAR(255) NOT NULL
 );
 

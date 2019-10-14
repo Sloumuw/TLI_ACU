@@ -74,20 +74,4 @@ class UserService
     {
         return password_verify($password, $user->getHashedPassword());
     }
-
-    /**
-     * Function used to generate a random salt for password hashing
-     * @return string
-     */
-    private function randomSalt(): string
-    {
-        $salt = '';
-        $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
-        for ($i = 0; $i < 22; $i++) {
-            $n = rand(0, strlen($alphabet)-1);
-            $salt[$i] = $alphabet[$n];
-        }
-
-        return $salt;
-    }
 }

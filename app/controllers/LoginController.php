@@ -72,6 +72,35 @@ class LoginController
      * @param Response $response
      * @return Response
      */
+    public function signUp(Request $request, Response $response): Response
+    {
+        try {
+            if ($request->getMethod() == 'POST') {
+                $userInfo = [
+                    'login' => $request->getParsedBody()['login'],
+                    'password' => $request->getParsedBody()['password']
+                ];
+                $this->userService->create($userInfo['login'], $userInfo['password']);
+                $GLOBALS['smarty']->assign('feedback', 'success');
+                $GLOBALS['smarty']->assign('signedMsg', 'Inscription réussie');
+            }
+        } catch (\PDOException $e) {
+            $GLOBALS['smarty']->assign('feedback', 'alert');
+            $GLOBALS['smarty']->assign('signedMsg', 'Identifiant déjà utilisé');
+        } catch (\Exception $e) {
+            return $response->withStatus(500, $e->getMessage());
+        }
+
+        $template = $GLOBALS['smarty']->fetch('sign-up.tpl');
+        $response->getBody()->write($template);
+        return $response;
+    }
+
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return Response
+     */
     public function logout(Request $request, Response $response): Response
     {
         try {

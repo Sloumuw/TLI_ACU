@@ -12,16 +12,17 @@
 		<div class="card-body">
 			<div class="row">
 				<form id="login-form">
-					<label for="login">Identifiant</label>
+					<label for="login">Identifiant<span style="color:red"> *</span></label>
 					<input type="text" class="u-full-width" placeholder="identifiant" id="login" autocomplete="off" required>
-					<label for="password">Mot de passe</label>
+					<label for="password">Mot de passe<span style="color:red"> *</span></label>
 					<input type="password" class="u-full-width" placeholder="********" id="password" autocomplete="off" required>
-					<input id="login-submit" class="button-primary" type="submit" value="Submit">
+					<input id="login-submit" class="button-primary" type="submit" value="Connexion">
 				</form>
 			</div>
+			<a href="/sign-up">Inscription</a>
 			<div id="feedback" class="feedback"></div>
 			{if isset($disconnect)}
-				<br/><div id="feedback" class="feedback success" style="display: block">Déconnexion réussie</div>
+				<div id="feedback" class="feedback success" style="display: block">Déconnexion réussie</div>
 			{/if}
 		</div>
 	</div>

@@ -22,4 +22,5 @@ $GLOBALS['user_service'] = new UserService(new Connect());
 $app->get('/', HomeController::class.':index');
 $app->get('/login', LoginController::class.':index');
 $app->get('/logout', LoginController::class.':logout');
+$app->any('/sign-up', LoginController::class.':signUp');
 $app->post('/login-ajax', LoginController::class.':login');
