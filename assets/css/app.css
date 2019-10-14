@@ -23,9 +23,10 @@ nav > ul > li {
 .nav-item > a:visited,
 .nav-item > a:active,
 .nav-item > a:hover{
-	color: #428bca;
+	color: #888888;
 	text-decoration: none;
-	font-size: 24px;
+	font-size: 18px;
+	font-variant: small-caps;
 }
 
 .logo {

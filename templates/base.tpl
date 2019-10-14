@@ -22,10 +22,12 @@
 				</a>
 			</li>
 			<li class="nav-item columns two" id="nav-item-2">
+				<a href="#" class="navLinks">Accueil</a>
+			</li>
+			<li class="nav-item columns two" id="nav-item-2">
 				<a href="#" class="navLinks">Pathologies</a>
 			</li>
-			<li class="nav-item columns five">&nbsp</li>
-			<li class="nav-item columns one" id="nav-item-3">
+			<li class="nav-item columns one offset-by-three" id="nav-item-3">
 				<a href="#" class="navLinks">Projet</a>
 			</li>
 			<li class="nav-item columns two" id="nav-item-4">
