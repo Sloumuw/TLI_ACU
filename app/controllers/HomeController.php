@@ -8,19 +8,6 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class HomeController
 {
-    /** @var Smarty */
-    private $smarty;
-
-    /**
-     * HomeController constructor.
-     */
-    public function __construct()
-    {
-        $this->smarty = $smarty = new Smarty();
-        $smarty->setTemplateDir('../templates');
-        $smarty->setCompileDir('../templates_c');
-    }
-
     /**
      * @param Request $request
      * @param Response $response
@@ -29,7 +16,7 @@ class HomeController
     public function index(Request $request, Response $response): Response
     {
         try {
-            $template = $this->smarty->fetch('base.tpl');
+            $template = $GLOBALS['smarty']->fetch('base.tpl');
             $response->getBody()->write($template);
 
             return $response;
