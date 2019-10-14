@@ -2474,3 +2474,84 @@ CREATE TABLE user (
 	login VARCHAR(20) NOT NULL,
 	hashed_password VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE carac (
+    idC INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    name VARCHAR(20) NOT NULL
+);
+
+INSERT INTO `carac` (`name`) VALUES
+('chaud'),
+('vide'),
+('froid'),
+('interne'),
+('externe'),
+('plein');
+
+
+CREATE TABLE catPatho (
+    idCP INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    name VARCHAR(20) NOT NULL
+);
+
+INSERT INTO `catPatho` (`name`) VALUES
+('organe/viscere'),
+('luo'),
+('merveilleux vaisseaux'),
+('jing jin'),
+('meridien');
+
+CREATE TABLE pathoCaracCatAssociation (
+    type varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+    idC INT,
+    idCP INT,
+
+    KEY `type` (`type`),
+    KEY `idC` (`idC`),
+    KEY `idCP` (`idCP`)
+
+);
+
+INSERT INTO `pathoCaracCatAssociation` (`type`, `idC`, `idCP`) VALUES
+('me', 5, 5),
+('mi', 4, 5),
+('lp', 6, 2),
+('lv', 2, 2),
+('j', NULL, 4),
+('tfp', 6 ,1),
+('tfv', 2, 1),
+('tfc', 1, 1),
+('tff', 3, 1),
+('tfpc', 6, 1),
+('tfpc', 1, 1),
+('tfvf', 2, 1),
+('tfvf', 3, 1),
+('l2p', 6, 2),
+('l2v', 2, 2),
+('tfv-', 2, 1),
+('tfv+', 2, 1),
+('tfvfs', 2, 1),
+('tfvfs', 3, 1),
+('tfpcs', 6, 1),
+('tfpcs', 1, 1),
+('tfvfm', 2, 1),
+('tfvfm', 3, 1),
+('tfpcm', 6, 1),
+('tfpcm', 1, 1),
+('tfvfi', 2, 1),
+('tfvfi', 3, 1),
+('tfpci', 6, 1),
+('tfpci', 1, 1),
+('mv', NULL, 3),
+('mvi', NULL, 3),
+('mvp', NULL, 3),
+('mva', NULL, 3);
+
+
+
+
+
+
+
+
+
