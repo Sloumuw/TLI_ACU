@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use Db\Connect;
-use Smarty;
 use App\models\UserService;
 use App\exceptions\NotFoundException;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -11,8 +10,6 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class LoginController
 {
-    /** @var Smarty */
-    private $smarty;
     /**
      * @var UserService
      */
@@ -23,10 +20,7 @@ class LoginController
      */
     public function __construct()
     {
-        $this->smarty = $smarty = new Smarty();
-        $smarty->setTemplateDir('../templates');
-        $smarty->setCompileDir('../templates_c');
-        $this->userService = new UserService(new Connect());
+        $this->userService = $GLOBALS['user_service'];
     }
 
     /**
@@ -37,7 +31,7 @@ class LoginController
     public function index(Request $request, Response $response): Response
     {
         try {
-            $template = $this->smarty->fetch('login.tpl');
+            $template = $GLOBALS['smarty']->fetch('login.tpl');
             $response->getBody()->write($template);
 
             return $response;
