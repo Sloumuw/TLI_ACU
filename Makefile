@@ -5,7 +5,7 @@ install:
 
 dev:
 	docker-compose build
-	docker-compose up -d
+	docker-compose up -d --force-recreate --renew-anon-volumes
 	make composer
 	@echo "Application démarrée : http://localhost:8080/"
 
