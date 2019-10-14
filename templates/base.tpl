@@ -31,7 +31,11 @@
 				<a href="#" class="navLinks">Projet</a>
 			</li>
 			<li class="nav-item columns two" id="nav-item-4">
-				<a href="/login" class="navLinks">Connexion</a>
+				{if $session }
+					<a href="/logout" class="navLinks">Déconnexion</a>
+				{else}
+					<a href="/login" class="navLinks">Connexion</a>
+				{/if}
 			</li>
 		</ul>
 	</nav>
