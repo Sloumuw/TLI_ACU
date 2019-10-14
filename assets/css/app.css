@@ -36,10 +36,9 @@ nav > ul > li {
 
 .card {
 	margin: 5vh;
-	border: 1px solid #fff;
 	border-radius: 10px;
 	background-color: #ededed;
-	box-shadow: 2px 2px darkgray;
+	box-shadow: 0 0 6px 0 rgba(0,0,0,0.6);
 }
 
 .card-header {
