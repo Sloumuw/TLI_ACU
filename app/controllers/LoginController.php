@@ -50,6 +50,8 @@ class LoginController
             $user = $this->userService->getByLogin(filter_input(INPUT_POST, 'login'));
             if ($this->userService->comparePassword($user, filter_input(INPUT_POST, 'password'))) {
                 $data = ['status'=>'success', 'login'=>$user->getLogin()];
+                session_start();
+                $_SESSION['name']=$user->getLogin();
             } else {
                 $data = ['status'=>'failed', 'message'=>'Identifiant / mot de passe incorrect'];
             }
@@ -63,5 +65,27 @@ class LoginController
 
         return $response
             ->withHeader('Content-Type', 'application/json');
+    }
+
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return Response
+     */
+    public function logout(Request $request, Response $response): Response
+    {
+        try {
+            session_unset();
+            session_destroy();
+
+            $GLOBALS['smarty']->clearAssign('session');
+            $GLOBALS['smarty']->assign('disconnect', true);
+            $template = $GLOBALS['smarty']->fetch('login.tpl');
+            $response->getBody()->write($template);
+
+            return $response;
+        } catch (\Exception $e) {
+            return $response->withStatus(500, $e->getMessage());
+        }
     }
 }

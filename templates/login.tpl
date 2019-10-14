@@ -20,6 +20,9 @@
 				</form>
 			</div>
 			<div id="feedback" class="feedback"></div>
+			{if isset($disconnect)}
+				<br/><div id="feedback" class="feedback success" style="display: block">Déconnexion réussie</div>
+			{/if}
 		</div>
 	</div>
 {/block}
