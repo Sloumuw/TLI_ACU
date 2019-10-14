@@ -27,10 +27,9 @@ class UserService
      */
     public function create(string $login, string $pass): void
     {
-        $salt = $this->randomSalt();
-        $hashedPassword = password_hash($pass, PASSWORD_BCRYPT, ['salt'=>$salt]);
-        $stmt = $this->db->conn->prepare("INSERT INTO `user` (`login`, `hashed_password`, `salt`) VALUES (:login, :hashed_password, :salt);");
-        $stmt->execute([':login'=>$login, ':hashed_password'=>$hashedPassword, ':salt'=>$salt]);
+        $hashedPassword = password_hash($pass, PASSWORD_BCRYPT);
+        $stmt = $this->db->conn->prepare("INSERT INTO `user` (`login`, `hashed_password`) VALUES (:login, :hashed_password);");
+        $stmt->execute([':login'=>$login, ':hashed_password'=>$hashedPassword]);
     }
 
     /**
@@ -59,7 +58,7 @@ class UserService
      */
     public function getByLogin(string $login): User
     {
-        $stmt = $this->db->conn->prepare("SELECT `id`, `login`, `hashed_password`, `salt` from `user` WHERE `login`=:login;");
+        $stmt = $this->db->conn->prepare("SELECT `id`, `login`, `hashed_password` from `user` WHERE `login`=:login;");
         $stmt->execute([':login' => $login]);
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $row = $stmt->fetch();
@@ -73,7 +72,7 @@ class UserService
 
     public function comparePassword(User $user, string $password): bool
     {
-        return ($user->getHashedPassword() === password_hash($password, PASSWORD_BCRYPT, ['salt'=>$user->getSalt()]));
+        return password_verify($password, $user->getHashedPassword());
     }
 
     /**

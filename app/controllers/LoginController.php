@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use Db\Connect;
 use App\models\UserService;
 use App\exceptions\NotFoundException;
 use Psr\Http\Message\ResponseInterface as Response;
