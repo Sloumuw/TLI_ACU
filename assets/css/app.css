@@ -1,3 +1,8 @@
+body {
+	background-image: linear-gradient(to bottom, #f0f0f0, #fbfbfb, #ffffff);
+	min-height: 100vh;
+}
+
 #nav-bar {
 	max-height: 50px;
 	background-color: #fff;
@@ -37,7 +42,7 @@ nav > ul > li {
 .card {
 	margin: 5vh;
 	border-radius: 10px;
-	background-color: #ededed;
+	background-color: #fff;
 	box-shadow: 0 0 6px 0 rgba(0,0,0,0.6);
 }
 
