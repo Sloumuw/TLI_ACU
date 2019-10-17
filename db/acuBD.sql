@@ -2560,9 +2560,9 @@ left join meridien merd on p.mer = merd.code*/
 
 create or replace view ma_vue as
 select p.idP, p.desc,
-c.idC as 'id caracteristique',
-cp.idCP as 'id du type de pathologie',
-merd.code as 'id meridien'
+       c.idC as 'idCarac',
+       cp.idCP as 'idTypePatho',
+       merd.code as 'idMerd'
 from patho p
 left join pathoCaracCatAssociation ass on p.`type` = ass.`type`
 left join catPatho cp on ass.idCP = cp.idCP
