@@ -2547,11 +2547,22 @@ INSERT INTO `pathoCaracCatAssociation` (`type`, `idC`, `idCP`) VALUES
 ('mvp', NULL, 3),
 ('mva', NULL, 3);
 
-create or replace view ma_vue as
+/*create or replace view ma_vue as
 select p.idP, p.desc, 
 c.name as 'caracteristiques', 
 cp.name as 'type de pathologie',
 merd.nom as 'meridien'
+from patho p
+left join pathoCaracCatAssociation ass on p.`type` = ass.`type`
+left join catPatho cp on ass.idCP = cp.idCP
+left join carac c on ass.idC = c.idC
+left join meridien merd on p.mer = merd.code*/
+
+create or replace view ma_vue as
+select p.idP, p.desc,
+c.idC as 'id caracteristique',
+cp.idCP as 'id du type de pathologie',
+merd.code as 'id meridien'
 from patho p
 left join pathoCaracCatAssociation ass on p.`type` = ass.`type`
 left join catPatho cp on ass.idCP = cp.idCP
