@@ -24,3 +24,4 @@ $app->get('/login', LoginController::class.':index');
 $app->get('/logout', LoginController::class.':logout');
 $app->any('/sign-up', LoginController::class.':signUp');
 $app->post('/login-ajax', LoginController::class.':login');
+$app->get('/project', HomeController::class.':displayProject');

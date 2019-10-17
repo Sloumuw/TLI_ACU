@@ -1,6 +1,7 @@
 body {
 	background-image: linear-gradient(to bottom, #f0f0f0, #fbfbfb, #ffffff);
 	min-height: 100vh;
+	margin-bottom: 2%;
 }
 
 #nav-bar {
@@ -81,4 +82,14 @@ form {
 .feedback.success {
 	color: #5cb85c;
 	background-color: #c9f5c6;
+}
+
+footer {
+	background-color: #555555;
+	color: #FFFFFF;
+	text-align: center;
+	bottom: 0; left: 0; right: 0;
+	padding: 4px 0 4px 0;
+	position: fixed;
+	z-index: 100;
 }

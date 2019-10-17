@@ -24,4 +24,16 @@ class HomeController
             return $response->withStatus(500, $e->getMessage());
         }
     }
+
+    public function displayProject(Request $request, Response $response): Response
+    {
+        try {
+            $template = $GLOBALS['smarty']->fetch('projet.tpl');
+            $response->getBody()->write($template);
+
+            return $response;
+        }catch (\Exception $e) {
+            return $response->withStatus(500, $e->getMessage());
+        }
+    }
 }
