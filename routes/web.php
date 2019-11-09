@@ -3,6 +3,7 @@
 use App\Controllers\HomeController;
 use App\Controllers\LoginController;
 use App\models\UserService;
+use App\models\MeridienService;
 use Db\Connect;
 use Slim\Factory\AppFactory;
 
@@ -18,6 +19,7 @@ if (!empty($_SESSION['name'])) {
 }
 
 $GLOBALS['user_service'] = new UserService(new Connect());
+$GLOBALS['meridien_service'] = new MeridienService(new Connect());
 
 $app->get('/', HomeController::class.':index');
 $app->get('/login', LoginController::class.':index');
