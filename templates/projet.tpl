@@ -29,6 +29,33 @@
                             <p>N'ayant pas l'autorisation d'utiliser un framework CSS tel que Bootstrap, nous avons eu recours à Skeleton. Cet outil est bien adapté à notre projet car il est conçu pour les petits projets n'ayant pas besoin de tous les avantages des frameworks plus grands. Skeleton ne met en forme qu'une poignée d'éléments HTML standard et inclut une grille.</p>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/html.png">
+                        <div class="title text-left">
+                            <p>HTML5</p>
+                        </div>
+                        <div class="description">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/css.png">
+                        <div class="title text-left">
+                            <p>CSS3</p>
+                        </div>
+                        <div class="description">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/html.png">
+                        <div class="title text-left">
+                            <p>Smarty</p>
+                        </div>
+                        <div class="description">
+                            <p>Le moteur et compilateur de templates PHP. Utiliser pour séparer la logique applicative et la présentation</p>
+                        </div>
+                    </div>
                 <li>Sources</li>
             </ul>
 {/block}
