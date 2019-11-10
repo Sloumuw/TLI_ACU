@@ -39,24 +39,29 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="../assets/images/css.png">
+                        <img src="../assets/images/css (copy).png">
                         <div class="title text-left">
                             <p>CSS3</p>
                         </div>
                         <div class="description">
-                            <p></p>
+                            <p>Pour faire du style en feuilles cascadées</p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="../assets/images/html.png">
+                        <img src="../assets/images/smarty.jpg">
                         <div class="title text-left">
                             <p>Smarty</p>
                         </div>
                         <div class="description">
-                            <p>Le moteur et compilateur de templates PHP. Utiliser pour séparer la logique applicative et la présentation</p>
+                            <p>Le moteur et compilateur de templates PHP. Utiliser pour séparer la logique applicative et la présentation, c'est-à-dire séparer la programmation du design</p>
                         </div>
                     </div>
                 <li>Sources</li>
+                <ul>
+                    <li><a hfref="https://www.smarty.net/">Smarty</li>
+                    <li><a hfref="https://www.php.net/docs.php">PHP</li>
+                    <li><a hfref="https://www.w3schools.com/">HTML/CSS</li>
+                    </ul>
             </ul>
 {/block}
 
