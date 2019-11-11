@@ -7,7 +7,7 @@ namespace App\models;
 class Caracteristique
 {
 
-    /** @var string */
+    /** @var int */
     private $idCarac;
 
     /** @var string */
@@ -17,9 +17,19 @@ class Caracteristique
     public static function fromDatabase(array $row): self
     {
         $entity = new self();
-        $entity->idCarac = $row['idC'];
+        $entity->idCarac = (int)$row['idC'];
         $entity->name = $row['name'];
 
         return $entity;
+    }
+
+    public function getId(): int
+    {
+        return $this->idCarac;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
     }
 }

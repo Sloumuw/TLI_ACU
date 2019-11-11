@@ -7,7 +7,7 @@ namespace App\models;
 class Categorie
 {
 
-    /** @var string */
+    /** @var int */
     private $idCat;
 
     /** @var string */
@@ -16,10 +16,19 @@ class Categorie
     public static function fromDatabase(array $row): self
     {
         $entity = new self();
-        $entity->idCat = $row['idCat'];
+        $entity->idCat = (int)$row['idCat'];
         $entity->name = $row['name'];
 
         return $entity;
     }
 
+    public function getId(): int
+    {
+        return $this->idCat;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
 }

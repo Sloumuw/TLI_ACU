@@ -2491,7 +2491,7 @@ INSERT INTO `carac` (`name`) VALUES
 
 CREATE TABLE catPatho (
     idCP INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    name VARCHAR(20) NOT NULL
+    name VARCHAR(30) NOT NULL
 );
 
 INSERT INTO `catPatho` (`name`) VALUES

@@ -23,4 +23,13 @@ class Meridien
         return $entity;
     }
 
+    public function getId(): string
+    {
+        return $this->idMeridien;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
 }

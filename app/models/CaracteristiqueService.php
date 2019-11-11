@@ -1,12 +1,11 @@
 <?php
 
-
 namespace App\models;
 
 use Db\Connect;
 use PDO;
 
-class MeridienService
+class CaracteristiqueService
 {
     /** @var Connect */
     private $db;
@@ -26,7 +25,7 @@ class MeridienService
      */
     public function getAll(): array
     {
-        $stmt = $this->db->conn->prepare("SELECT code, nom as name FROM `meridien` ;");
+        $stmt = $this->db->conn->prepare("SELECT idC, name FROM `carac` ;");
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $rows = $stmt->fetchAll();
@@ -34,7 +33,7 @@ class MeridienService
         $result = [];
 
         foreach ($rows as $row) {
-            array_push($result, Meridien::fromDatabase((array)$row));
+            array_push($result, Caracteristique::fromDatabase((array)$row));
         }
 
         return $result;

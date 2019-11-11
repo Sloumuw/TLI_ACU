@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{block name="title"}TLI - Accueil{/block}</title>
 	<link rel="icon" type="image/png" href="../assets/images/favicon.png">
@@ -26,7 +26,7 @@
 					<a href="#" class="navLinks">Accueil</a>
 				</li>
 				<li class="nav-item columns two" id="nav-item-2">
-					<a href="#" class="navLinks">Pathologies</a>
+					<a href="/pathology" class="navLinks">Pathologies</a>
 				</li>
 				<li class="nav-item columns one offset-by-three" id="nav-item-3">
 					<a href="/project" class="navLinks">Projet</a>

@@ -6,23 +6,28 @@ namespace App\models;
 
 class User
 {
+    /** @var int */
+    private $id;
+
     /** @var string */
     private $login;
 
     /** @var string */
     private $hashedPassword;
 
-    /** @var string */
-    private $salt;
-
     public static function fromDatabase(array $row): self
     {
         $user = new self();
+        $user->id = (int)$row['id'];
         $user->login = $row['login'];
         $user->hashedPassword = $row['hashed_password'];
-        $user->salt = $row['salt'];
 
         return $user;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     public function getLogin(): string
@@ -33,10 +38,5 @@ class User
     public function getHashedPassword(): string
     {
         return $this->hashedPassword;
-    }
-
-    public function getSalt(): string
-    {
-        return $this->salt;
     }
 }
