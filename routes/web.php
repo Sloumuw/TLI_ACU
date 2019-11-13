@@ -35,3 +35,4 @@ $app->any('/sign-up', LoginController::class.':signUp');
 $app->post('/login-ajax', LoginController::class.':login');
 $app->get('/project', HomeController::class.':displayProject');
 $app->get('/pathology', PathologyController::class.':index');
+$app->post('/filter', PathologyController::class.':filter');

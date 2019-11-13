@@ -10,59 +10,64 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <label>Méridien
-                    <select>
-                        <option value="0">-- Selectionnez un méridien --</option>
-                        {foreach from=$meridiens item=meridien}
-                            <option value="{$meridien->getId}">{$meridien->getName()}</option>
-                        {/foreach}
-                    </select>
-                </label>
-                <label>Type de pathologie
-                    <select>
-                        <option value="0">-- Selectionnez une categorie --</option>
-                        {foreach from=$categories item=category}
-                            <option value="{$category->getId}">{$category->getName()}</option>
-                        {/foreach}
-                    </select>
-                </label>
-                <label>Caractéristiques
-                    <select>
-                        <option value="0">-- Selectionnez une caractéristique --</option>
-                        {foreach from=$caracs item=carac}
-                            <option value="{$carac->getId}">{$carac->getName()}</option>
-                        {/foreach}
-                    </select>
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header">Pathologies</div>
-        <div class="card-body">
-            <div class="row">
-                <table>
-                    <thead>
-                        <tr>
-                            {foreach from=$headers item=header}
-                                <th>{$header}</th>
+                <form action="/filter" method="post">
+                    <label>Méridien
+                        <select name="meridien">
+                            <option value="0">-- Selectionnez un méridien --</option>
+                            {foreach from=$meridiens item=meridien}
+                                <option value="{$meridien->getId()}">{$meridien->getId}{$meridien->getName()}</option>
                             {/foreach}
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {foreach from=$pathologies item=pathologie}
-                        <tr>
-                            <td>{$pathologie->getCatName()}</td>
-                            <td>{$pathologie->getCaracName()}</td>
-                            <td>{$pathologie->getMeridienName()}</td>
-                            <td>{$pathologie->getDescription()}</td>
-                        </tr>
-                    {/foreach}
-                    </tbody>
-                </table>
+                        </select>
+                    </label>
+                    <label>Type de pathologie
+                        <select name="category">
+                            <option value="0">-- Selectionnez une categorie --</option>
+                            {foreach from=$categories item=category}
+                                <option value="{$category->getId()}">{$category->getName()}</option>
+                            {/foreach}
+                        </select>
+                    </label>
+                    <label>Caractéristiques
+                        <select name="carac">
+                            <option value="0">-- Selectionnez une caractéristique --</option>
+                            {foreach from=$caracs item=carac}
+                                <option value="{$carac->getId()}">{$carac->getName()}</option>
+                            {/foreach}
+                        </select>
+                    </label>
+                    <input type="submit" value="Filtrer" id="filter">
+                </form>
             </div>
         </div>
     </div>
+    {if $pathologies !== null}
+        <div class="card">
+            <div class="card-header">Pathologies</div>
+            <div class="card-body">
+                <div class="row">
+                    <table>
+                        <thead>
+                            <tr>
+                                {foreach from=$headers item=header}
+                                    <th>{$header}</th>
+                                {/foreach}
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {foreach from=$pathologies item=pathologie}
+                            <tr>
+                                <td>{$pathologie->getCatName()}</td>
+                                <td>{$pathologie->getCaracName()}</td>
+                                <td>{$pathologie->getMeridienName()}</td>
+                                <td>{$pathologie->getDescription()}</td>
+                            </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {/if}
 {/block}
 
 {block name="script" append}

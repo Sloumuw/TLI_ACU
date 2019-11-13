@@ -43,8 +43,40 @@ class PathologyController
     public function index(Request $request, Response $response): Response
     {
         try {
+            $meridiens = $this->meridienService->getAll();
+            $categories = $this->categorieService->getAll();
+            $caracs = $this->caracteristiqueService->getAll();
+
+//            echo "<pre>";var_dump($meridiens[0]->getId());die;
+
+            $GLOBALS['smarty']->assign('meridiens', $meridiens);
+            $GLOBALS['smarty']->assign('categories', $categories);
+            $GLOBALS['smarty']->assign('caracs', $caracs);
+
+            $template = $GLOBALS['smarty']->fetch('pathology.tpl');
+            $response->getBody()->write($template);
+
+            return $response;
+        } catch (\Exception $e) {
+            return $response->withStatus(500, $e->getMessage());
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @return Response
+     */
+    public function filter(Request $request, Response $response): Response
+    {
+        try {
+            $mer = $_POST['meridien'];
+            $cat = $_POST['category'];
+            $carac = $_POST['carac'];
+
             $headers = Pathology::HEADERS;
-            $pathologies = $this->pathologyService->getAll();
+            $pathologies = $this->pathologyService->getFilteredPathologies($mer, $cat, $carac);
+            var_dump(count($pathologies));
 
             $meridiens = $this->meridienService->getAll();
             $categories = $this->categorieService->getAll();
