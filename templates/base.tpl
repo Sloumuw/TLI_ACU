@@ -23,9 +23,6 @@
 					</a>
 				</li>
 				<li class="nav-item columns two" id="nav-item-2">
-					<a href="#" class="navLinks">Accueil</a>
-				</li>
-				<li class="nav-item columns two" id="nav-item-2">
 					<a href="/pathology" class="navLinks">Pathologies</a>
 				</li>
 				<li class="nav-item columns one offset-by-three" id="nav-item-3">

@@ -15,7 +15,7 @@
                         <select name="meridien">
                             <option value="0">-- Selectionnez un méridien --</option>
                             {foreach from=$meridiens item=meridien}
-                                <option value="{$meridien->getId()}">{$meridien->getId}{$meridien->getName()}</option>
+                                <option value="{$meridien->getId()}">{$meridien->getName()}</option>
                             {/foreach}
                         </select>
                     </label>
@@ -40,6 +40,25 @@
             </div>
         </div>
     </div>
+    {if $session }
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <form action="/keyword-filter" method="post">
+                        <label>Recherche par mots clé
+                            <select name="keyword">
+                                <option value="0">-- Selectionnez un mot clé --</option>
+                                {foreach from=$keywords item=keyword}
+                                    <option value="{$keyword->getId()}">{$keyword->getName()}</option>
+                                {/foreach}
+                            </select>
+                        </label>
+                        <input type="submit" value="Filtrer" id="filter">
+                    </form>
+                </div>
+            </div>
+        </div>
+    {/if}
     {if $pathologies !== null}
         <div class="card">
             <div class="card-header">Pathologies</div>
